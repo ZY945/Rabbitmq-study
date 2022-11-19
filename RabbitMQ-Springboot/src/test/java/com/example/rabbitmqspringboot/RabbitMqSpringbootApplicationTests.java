@@ -1,5 +1,6 @@
 package com.example.rabbitmqspringboot;
 
+import com.example.rabbitmqspringboot.domin.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -32,5 +33,13 @@ class RabbitMqSpringbootApplicationTests {
         System.out.println("收到消费者响应："+res);
     }
 
+
+    //发送user消息到队列
+    @Test
+    void publisherUser() {
+        //使用convertAndSend方法一步到位，参数基本和之前是一样的
+        //最后一个消息本体可以是Object类型，真是大大的方便
+        template.convertAndSend("amq.direct", "my-yyds", new User(12,"测试发送消息"));
+    }
 
 }

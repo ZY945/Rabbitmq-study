@@ -1,6 +1,7 @@
 package com.example.rabbitmqspringboot.config;
 
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +25,11 @@ public class RabbitConfiguration {
         return QueueBuilder
                 .nonDurable("yyds")     //非持久化类型
                 .build();
+    }
+
+    @Bean("jacksonConverter")   //直接创建一个用于JSON转换的Bean
+    public Jackson2JsonMessageConverter converter(){
+        return new Jackson2JsonMessageConverter();
     }
 
     @Bean("bingding")
