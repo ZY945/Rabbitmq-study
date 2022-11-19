@@ -12,6 +12,7 @@
         <module>RabbitMQ-java</module>
         <module>RabbitMQ-Springboot</module>
         <module>RabbitMQ-Deadletter-queue</module>
+        <module>RabbitMQ-Work-Queue</module>
     </modules>
 
     <properties>
