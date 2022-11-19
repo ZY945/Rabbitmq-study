@@ -1,4 +1,4 @@
-package com.example.rabbitmqspringboot.domin;
+package com.example.rabbitmqdeadletterqueue.domin;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
