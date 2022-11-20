@@ -1,6 +1,5 @@
 package com.example.rabbitmqworkqueue.listener;
 
-import com.example.rabbitmqworkqueue.domin.User;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 

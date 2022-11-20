@@ -13,6 +13,10 @@
         <module>RabbitMQ-Springboot</module>
         <module>RabbitMQ-Deadletter-queue</module>
         <module>RabbitMQ-Work-Queue</module>
+        <module>RabbitMQ-Publish-Subscribe</module>
+        <module>RabbitMQ-Routing</module>
+        <module>RabbitMQ-Topics</module>
+        <module>RabbitMQ-Exchange-Headers</module>
     </modules>
 
     <properties>
