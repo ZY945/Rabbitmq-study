@@ -17,6 +17,7 @@
         <module>RabbitMQ-Routing</module>
         <module>RabbitMQ-Topics</module>
         <module>RabbitMQ-Exchange-Headers</module>
+        <module>Mail-SpringBoot-RabbitMQ</module>
     </modules>
 
     <properties>
