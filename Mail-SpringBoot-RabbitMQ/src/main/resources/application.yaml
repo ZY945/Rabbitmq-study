@@ -3,8 +3,8 @@ spring:
     name: mail-service
   mail:
     host: smtp.qq.com
-    username: 1335799468@qq.com
-    password: zvtbnuamqcamhhad11
+    username: 1111111111@qq.com
+    password: 1111111111111111
     default-encoding: UTF-8
   # rabbitmq配置
   rabbitmq:

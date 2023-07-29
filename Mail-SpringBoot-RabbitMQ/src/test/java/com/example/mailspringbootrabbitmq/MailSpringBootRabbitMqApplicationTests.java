@@ -28,7 +28,7 @@ class MailSpringBootRabbitMqApplicationTests {
         String format = simpleDateFormat.format(date);
 
         WorkOrder workOrder = new WorkOrder();
-        workOrder.setMail("zhangyang_2002@foxmail.com");
+        workOrder.setMail("11111111111@foxmail.com");
         workOrder.setArrivalTime(format);
         workOrder.setName("张三");
         workOrder.setPhone("123456789");
