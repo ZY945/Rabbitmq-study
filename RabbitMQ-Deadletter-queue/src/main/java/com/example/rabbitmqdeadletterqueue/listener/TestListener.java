@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TestListener {
     @RabbitListener(queues = "dl-yyds", messageConverter = "jacksonConverter")
-    public void receiver(User user){
+    public void receiver(User user) {
         System.out.println(user);
     }
 }

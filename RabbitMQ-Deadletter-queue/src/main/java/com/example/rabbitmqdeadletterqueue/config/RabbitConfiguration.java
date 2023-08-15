@@ -17,7 +17,7 @@ public class RabbitConfiguration {
      * 创建一个用于JSON转换的Bean
      */
     @Bean("jacksonConverter")
-    public Jackson2JsonMessageConverter converter(){
+    public Jackson2JsonMessageConverter converter() {
         return new Jackson2JsonMessageConverter();
     }
 
@@ -27,7 +27,7 @@ public class RabbitConfiguration {
      * 创建一个新的死信交换机
      */
     @Bean("directDlExchange")
-    public Exchange dlExchange(){
+    public Exchange dlExchange() {
         return ExchangeBuilder
                 .directExchange("dlx.direct")
                 .build();
@@ -37,7 +37,7 @@ public class RabbitConfiguration {
      * 创建一个新的死信队列
      */
     @Bean("yydsDlQueue")
-    public Queue dlQueue(){
+    public Queue dlQueue() {
         return QueueBuilder
                 .nonDurable("dl-yyds")
                 .build();
@@ -47,8 +47,8 @@ public class RabbitConfiguration {
      * 将死信交换机和队列进行绑定
      */
     @Bean("dlBinding")
-    public Binding dlBingding(@Qualifier("directDlExchange")Exchange dlExchange,
-                              @Qualifier("yydsDlQueue")Queue dlQueue){
+    public Binding dlBingding(@Qualifier("directDlExchange") Exchange dlExchange,
+                              @Qualifier("yydsDlQueue") Queue dlQueue) {
         return BindingBuilder
                 .bind(dlQueue)
                 .to(dlExchange)
@@ -57,21 +57,22 @@ public class RabbitConfiguration {
     }
 
 
-
     //配置正常
+
     /**
      * 绑定
      */
     @Bean("directExchange")//定义交换机Bean，可以很多个
-    public Exchange exchange(){
+    public Exchange exchange() {
         return ExchangeBuilder.directExchange("amq.direct").build();
     }
+
     /**
      * 配置并创建队列
      * 指定死信交换机和RoutingKey，并创建
      */
     @Bean("yydsQueue")
-    public Queue queue(){
+    public Queue queue() {
         return QueueBuilder
                 .nonDurable("yyds")
                 .deadLetterExchange("dlx.direct")   //指定死信交换机
@@ -80,12 +81,13 @@ public class RabbitConfiguration {
                 .maxLength(3)//设置最大长度
                 .build();
     }
+
     /**
      * 将正常交换机和队列进行绑定
      */
     @Bean("bingding")
-    public Binding binding(@Qualifier("directExchange")Exchange exchange,
-                           @Qualifier("yydsQueue")Queue queue){
+    public Binding binding(@Qualifier("directExchange") Exchange exchange,
+                           @Qualifier("yydsQueue") Queue queue) {
         return BindingBuilder
                 .bind(queue)   //绑定队列
                 .to(exchange)  //到交换机

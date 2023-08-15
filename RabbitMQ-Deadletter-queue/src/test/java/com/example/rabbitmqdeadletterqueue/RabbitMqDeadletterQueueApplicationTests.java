@@ -17,7 +17,7 @@ class RabbitMqDeadletterQueueApplicationTests {
     @Test
     void publisher() {
         for (int i = 1; i <= 4; i++)
-            template.convertAndSend("amq.direct", "my-yyds", new User(i,"第"+i+"个消息"));
+            template.convertAndSend("amq.direct", "my-yyds", new User(i, "第" + i + "个消息"));
     }
 
 }
