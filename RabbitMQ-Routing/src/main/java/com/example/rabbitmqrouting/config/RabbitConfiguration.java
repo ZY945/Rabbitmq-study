@@ -13,18 +13,18 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfiguration {
 
     @Bean("directExchange")
-    public Exchange exchange(){
+    public Exchange exchange() {
         return ExchangeBuilder.directExchange("amq.direct").build();
     }
 
     @Bean("yydsQueue")
-    public Queue queue(){
+    public Queue queue() {
         return QueueBuilder.nonDurable("yyds").build();
     }
 
     @Bean("binding")   //使用yyds1绑定
     public Binding binding(@Qualifier("directExchange") Exchange exchange,
-                           @Qualifier("yydsQueue") Queue queue){
+                           @Qualifier("yydsQueue") Queue queue) {
         return BindingBuilder
                 .bind(queue)
                 .to(exchange)
@@ -34,7 +34,7 @@ public class RabbitConfiguration {
 
     @Bean("binding2")   //使用yyds2绑定
     public Binding binding2(@Qualifier("directExchange") Exchange exchange,
-                            @Qualifier("yydsQueue") Queue queue){
+                            @Qualifier("yydsQueue") Queue queue) {
         return BindingBuilder
                 .bind(queue)
                 .to(exchange)
