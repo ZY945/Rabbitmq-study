@@ -19,8 +19,8 @@ public class TestListener {
 //        System.out.println("二号消息队列监听器 "+data);
 //    }
 
-    @RabbitListener(queues = "yyds",containerFactory = "listenerContainer",concurrency = "5")
-    public void receiver(String data){   //这里直接接收String类型的数据
-        System.out.println("一号消息队列监听器 "+data);
+    @RabbitListener(queues = "yyds", containerFactory = "listenerContainer", concurrency = "5")
+    public void receiver(String data) {   //这里直接接收String类型的数据
+        System.out.println("一号消息队列监听器 " + data);
     }
 }

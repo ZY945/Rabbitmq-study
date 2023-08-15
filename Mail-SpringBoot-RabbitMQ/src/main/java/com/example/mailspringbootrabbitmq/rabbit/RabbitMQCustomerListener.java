@@ -5,7 +5,6 @@ import com.example.mailspringbootrabbitmq.Bean.MailVo;
 import com.example.mailspringbootrabbitmq.Bean.WorkOrder;
 import com.example.mailspringbootrabbitmq.mail_test.MailServiceImpl;
 import com.rabbitmq.client.Channel;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +21,6 @@ public class RabbitMQCustomerListener {
     //监听email队列
     @RabbitListener(queues = {RabbitMQConfig.QUEUE_INFORM_EMAIL})
     public void receive_email(Object msg, Message message, Channel channel) {
-//        System.out.println("QUEUE_INFORM_EMAIL msg"+msg);
-        //测试返回值变json
-//        String body = new String(message.getBody());
-//        System.out.println(body);
-//
-//        System.out.println(workOrder);
 
         String body = new String(message.getBody());
         String receivedRoutingKey = message.getMessageProperties().getReceivedRoutingKey();

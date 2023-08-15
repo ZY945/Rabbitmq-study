@@ -15,7 +15,7 @@ import javax.mail.internet.MimeMessage;
  * @date 2022/12/12 15:45
  */
 @Component
-public class MailServiceImpl{
+public class MailServiceImpl {
 
     @Value("${spring.mail.username}")
     private String from;

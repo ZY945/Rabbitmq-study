@@ -9,14 +9,14 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfiguration {
 
     @Bean("headerExchange")  //注意这里返回的是HeadersExchange
-    public HeadersExchange exchange(){
+    public HeadersExchange exchange() {
         return ExchangeBuilder
                 .headersExchange("amq.headers")  //RabbitMQ为我们预置了两个，这里用第一个就行
                 .build();
     }
 
     @Bean("yydsQueue")
-    public Queue queue(){
+    public Queue queue() {
         return QueueBuilder
                 .nonDurable("yyds")
                 .build();
@@ -24,7 +24,7 @@ public class RabbitConfiguration {
 
     @Bean("binding")
     public Binding binding2(@Qualifier("headerExchange") HeadersExchange exchange,  //这里和上面一样的类型
-                            @Qualifier("yydsQueue") Queue queue){
+                            @Qualifier("yydsQueue") Queue queue) {
         return BindingBuilder
                 .bind(queue)
                 .to(exchange)   //使用HeadersExchange的to方法，可以进行进一步配置
