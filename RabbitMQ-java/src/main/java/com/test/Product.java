@@ -24,10 +24,10 @@ public class Product {
 
         //创造连接
         try (Connection connection = factory.newConnection();
-            Channel channel = connection.createChannel()){
+             Channel channel = connection.createChannel()) {
 
-            channel.queueDeclare("yyds",false,false,false,null);
-            channel.queueBind("yyds","amq.direct","my-yyds");
+            channel.queueDeclare("yyds", false, false, false, null);
+            channel.queueBind("yyds", "amq.direct", "my-yyds");
             channel.basicPublish("amq.direct", "my-yyds", null, "Hello World!".getBytes());
         } catch (IOException e) {
             e.printStackTrace();

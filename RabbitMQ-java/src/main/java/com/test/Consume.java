@@ -36,6 +36,7 @@ public class Consume {
             //channel.basicNack(delivery.getEnvelope().getDeliveryTag(), false, false);
             //跟上面一样，最后一个参数为false，只不过这里省了
             //channel.basicReject(delivery.getEnvelope().getDeliveryTag(), false);
-        }, s -> {});
+        }, s -> {
+        });
     }
 }

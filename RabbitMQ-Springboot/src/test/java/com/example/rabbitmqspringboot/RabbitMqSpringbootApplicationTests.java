@@ -2,7 +2,6 @@ package com.example.rabbitmqspringboot;
 
 import com.example.rabbitmqspringboot.domin.User;
 import org.junit.jupiter.api.Test;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -30,7 +29,7 @@ class RabbitMqSpringbootApplicationTests {
     void publishers() {
         //会等待消费者消费然后返回响应结果
         Object res = template.convertSendAndReceive("amq.direct", "my-yyds", "消息");
-        System.out.println("收到消费者响应："+res);
+        System.out.println("收到消费者响应：" + res);
     }
 
 
@@ -39,7 +38,7 @@ class RabbitMqSpringbootApplicationTests {
     void publisherUser() {
         //使用convertAndSend方法一步到位，参数基本和之前是一样的
         //最后一个消息本体可以是Object类型，真是大大的方便
-        template.convertAndSend("amq.direct", "my-yyds", new User(12,"测试发送消息"));
+        template.convertAndSend("amq.direct", "my-yyds", new User(12, "测试发送消息"));
     }
 
 }

@@ -40,8 +40,8 @@ public class TestListener {
     /**
      * 指定messageConverter为我们刚刚创建的Bean名称
      */
-    @RabbitListener(queues = "yyds",messageConverter = "jacksonConverter")
-    public void receiver(User user){  //直接接收User类型
+    @RabbitListener(queues = "yyds", messageConverter = "jacksonConverter")
+    public void receiver(User user) {  //直接接收User类型
         System.out.println(user);
     }
 

@@ -14,25 +14,25 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfiguration {
 
     @Bean("directExchange")//定义交换机Bean，可以很多个
-    public Exchange exchange(){
+    public Exchange exchange() {
         return ExchangeBuilder.directExchange("amq.direct").build();
     }
 
     @Bean("yydsQueue")       //定义消息队列
-    public Queue queue(){
+    public Queue queue() {
         return QueueBuilder
                 .nonDurable("yyds")     //非持久化类型
                 .build();
     }
 
     @Bean("jacksonConverter")   //直接创建一个用于JSON转换的Bean
-    public Jackson2JsonMessageConverter converter(){
+    public Jackson2JsonMessageConverter converter() {
         return new Jackson2JsonMessageConverter();
     }
 
     @Bean("bingding")
-    public Binding binding(@Qualifier("directExchange")Exchange exchange,
-                           @Qualifier("yydsQueue")Queue queue){
+    public Binding binding(@Qualifier("directExchange") Exchange exchange,
+                           @Qualifier("yydsQueue") Queue queue) {
         //将我们刚刚定义的交换机和队列进行绑定
         return BindingBuilder
                 .bind(queue)   //绑定队列

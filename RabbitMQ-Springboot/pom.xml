@@ -79,7 +79,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.example.rabbitmqspringboot.RabbitMqSpringbootApplication</mainClass>
+                    <mainClass>com.example.com.example.rabbitmq.Callback.RabbitMqSpringbootApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
