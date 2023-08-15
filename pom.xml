@@ -18,6 +18,7 @@
         <module>RabbitMQ-Topics</module>
         <module>RabbitMQ-Exchange-Headers</module>
         <module>Mail-SpringBoot-RabbitMQ</module>
+        <module>RabbitMQ-Callback</module>
     </modules>
 
     <properties>

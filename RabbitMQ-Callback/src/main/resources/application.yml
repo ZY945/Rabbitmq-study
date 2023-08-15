@@ -1,0 +1,18 @@
+spring:
+  # mq
+  rabbitmq:
+    host: ${host}
+    port: 5672
+    username: ${mq_username}
+    password: ${mq_password}
+    listener:
+      direct:
+        # 表示消息确认方式，其有三种配置方式，分别是none、manual和auto；默认auto
+        acknowledge-mode: manual
+    #开启消息的return机制--开启 ReturnCallback
+    publisher-returns: true
+    #在需要使用消息的return机制时候，此参数必须设置为true
+    template:
+      mandatory: true
+    #开启消息的confirm机制
+    publisher-confirm-type: correlated
