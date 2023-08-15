@@ -9,14 +9,14 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfiguration {
 
     @Bean("topicExchange")
-    public Exchange exchange(){
+    public Exchange exchange() {
         return ExchangeBuilder
                 .topicExchange("amq.topic")
                 .build();
     }
 
     @Bean("yydsQueue")
-    public Queue queue(){
+    public Queue queue() {
         return QueueBuilder
                 .nonDurable("yyds")
                 .build();
@@ -24,7 +24,7 @@ public class RabbitConfiguration {
 
     @Bean("binding")
     public Binding binding(@Qualifier("topicExchange") Exchange exchange,
-                           @Qualifier("yydsQueue") Queue queue){
+                           @Qualifier("yydsQueue") Queue queue) {
         return BindingBuilder
                 .bind(queue)
                 .to(exchange)
